@@ -5,3 +5,12 @@
 //  Created by shashika theekshana on BE 2568-07-25.
 //
 
+import Foundation
+
+struct StopwatchModel {
+    var elapesedTime: TimeInterval = 0.0
+    var isRunning: Bool = false
+    var lastStartTime: Date?
+    
+}
+
