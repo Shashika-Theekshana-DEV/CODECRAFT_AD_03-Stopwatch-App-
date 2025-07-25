@@ -9,16 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            StopwatchView()
-                .tabItem{
-                    Label("Stopwatch", systemImage: "clock")
-                }
-            SettingView()
-                .tabItem{
-                    Label("Setting",systemImage:"gearshape.fill")
-                }
-        }
+       Text("Hello, World!")
     }
 }
 
