@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = StopwatchViewModel()
     var body: some View {
-       Text("Hello, World!")
+       ZStack{
+        // bg style
+           Color(.systemBackground).edgesIgnoringSafeArea(.all)
+         
+       // stopwatch
+           
+           StopwatchView(viewModel: viewModel)
+        }
     }
 }
 

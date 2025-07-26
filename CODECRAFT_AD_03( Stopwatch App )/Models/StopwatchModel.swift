@@ -8,7 +8,7 @@
 import Foundation
 
 struct StopwatchModel {
-    var elapesedTime: TimeInterval = 0.0
+    var elapsedTime: TimeInterval = 0.0
     var isRunning: Bool = false
     var lastStartTime: Date?
     
