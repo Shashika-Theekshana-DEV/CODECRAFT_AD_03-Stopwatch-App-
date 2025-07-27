@@ -11,37 +11,46 @@ struct StopwatchView: View {
     @ObservedObject var viewModel: StopwatchViewModel
     
     var body: some View {
-        VStack {
-            // Time Display
-            Text(viewModel.formattedTime)
-                .font(.system(size: 48, weight: .bold, design: .monospaced))
-                .padding(.bottom, 40)
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [Color(red: 1.0, green: 0.42, blue: 0.42),
+                                            Color(red: 1.0, green: 0.85, blue: 0.24)]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing)
+            .edgesIgnoringSafeArea(.all)
             
-            // Buttons
-            HStack(spacing: 20) {
-                // Reset Button
-                Button(action: {
-                    viewModel.reset()
-                }) {
-                    CircleButton(label: "Reset", color: .gray)
-                }
+            VStack {
+                // Time Display
+                Text(viewModel.formattedTime)
+                    .font(.system(size: 48, weight: .bold, design: .monospaced))
+                    .padding(.bottom, 40)
                 
-                // Start/Stop Button
-                Button(action: {
-                    if viewModel.isRunning {
-                        viewModel.stop()
-                    } else {
-                        viewModel.start()
+                // Buttons
+                HStack(spacing: 20) {
+                    // Reset Button
+                    Button(action: {
+                        viewModel.reset()
+                    }) {
+                        CircleButton(label: "Reset", color: .gray)
                     }
-                }) {
-                    CircleButton(
-                        label: viewModel.isRunning ? "Stop" : "Start",
-                        color: viewModel.isRunning ? .red : .green
-                    )
+                    
+                    // Start/Stop Button
+                    Button(action: {
+                        if viewModel.isRunning {
+                            viewModel.stop()
+                        } else {
+                            viewModel.start()
+                        }
+                    }) {
+                        CircleButton(
+                            label: viewModel.isRunning ? "Stop" : "Start",
+                            color: viewModel.isRunning ? .red : .green
+                        )
+                    }
                 }
             }
+            .padding()
         }
-        .padding()
     }
 }
 
